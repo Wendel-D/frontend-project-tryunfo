@@ -12,8 +12,8 @@ class App extends React.Component {
     foto: '',
     raridade: 'normal',
     isTrunfo: false,
-    isSaveBuutonDisabled: true,
-    prevOn: false,
+    // isSaveBuutonDisabled: true,
+    // prevOn: false,
   };
 
   onInputChange = ({ target }) => {
@@ -25,7 +25,16 @@ class App extends React.Component {
   };
 
   render() {
-    const { cardName, cardDescription, atriNumeric1, atriNumeric2, atriNumeric3, foto, raridade, isTrunfo } = this.state;
+    const {
+      cardName,
+      cardDescription,
+      atriNumeric1,
+      atriNumeric2,
+      atriNumeric3,
+      foto,
+      raridade,
+      isTrunfo,
+    } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -39,7 +48,7 @@ class App extends React.Component {
           cardRare={ raridade }
           cardTrunfo={ isTrunfo }
           isSaveBuutonDisabled="false"
-          onInputChange={this.onInputChange}
+          onInputChange={ this.onInputChange }
           onSaveButtonClick=""
         />
         <Card
