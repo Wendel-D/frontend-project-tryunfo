@@ -12,7 +12,7 @@ class App extends React.Component {
     foto: '',
     raridade: 'normal',
     isTrunfo: false,
-    // isSaveBuutonDisabled: true,
+    isSaveButtonDisabled: true,
     // prevOn: false,
   };
 
@@ -21,6 +21,37 @@ class App extends React.Component {
     const value = type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
+    }, () => {
+      const {
+        cardName,
+        cardDescription,
+        foto,
+        atriNumeric1,
+        atriNumeric2,
+        atriNumeric3,
+      } = this.state;
+      const maxLimit = 210;
+      const maxLimitIndividual = 90;
+      const soma = (+atriNumeric1 + +atriNumeric2 + +atriNumeric3 <= maxLimit);
+      console.log(soma);
+      if (
+        cardName && cardDescription && foto
+        && soma
+        && atriNumeric1 <= maxLimitIndividual
+        && atriNumeric2 <= maxLimitIndividual
+        && atriNumeric3 <= maxLimitIndividual
+        && atriNumeric1 >= 0
+        && atriNumeric2 >= 0
+        && atriNumeric3 >= 0
+      ) {
+        this.setState({
+          isSaveButtonDisabled: false,
+        });
+      } else {
+        this.setState({
+          isSaveButtonDisabled: true,
+        });
+      }
     });
   };
 
@@ -34,6 +65,7 @@ class App extends React.Component {
       foto,
       raridade,
       isTrunfo,
+      isSaveButtonDisabled,
     } = this.state;
     return (
       <div>
@@ -47,7 +79,7 @@ class App extends React.Component {
           cardImage={ foto }
           cardRare={ raridade }
           cardTrunfo={ isTrunfo }
-          isSaveBuutonDisabled="false"
+          isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick=""
         />
