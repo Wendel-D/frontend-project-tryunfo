@@ -22,7 +22,7 @@ class Form extends React.Component {
           Nome do Stand:
           <input
             type="text"
-            name="name"
+            name="cardName"
             data-testid="name-input"
             value={ cardName }
             onChange={ onInputChange }
@@ -33,7 +33,8 @@ class Form extends React.Component {
         <label htmlFor="descriçao">
           Descrição:
           <textarea
-            name="descriçao"
+            name="cardDescription"
+            type="text"
             cols="30"
             rows="10"
             data-testid="description-input"
@@ -49,7 +50,7 @@ class Form extends React.Component {
           nivel de poder:
           <input
             type="number"
-            name="atri-numeric1"
+            name="atriNumeric1"
             data-testid="attr1-input"
             value={ cardAttr1 }
             onChange={ onInputChange }
@@ -61,7 +62,7 @@ class Form extends React.Component {
           nivel de velocidade:
           <input
             type="number"
-            name="atri-numeric2"
+            name="atriNumeric2"
             data-testid="attr2-input"
             value={ cardAttr2 }
             onChange={ onInputChange }
@@ -73,7 +74,7 @@ class Form extends React.Component {
           nivel de alcance:
           <input
             type="number"
-            name="atri-numeric3"
+            name="atriNumeric3"
             data-testid="attr3-input"
             value={ cardAttr3 }
             onChange={ onInputChange }
