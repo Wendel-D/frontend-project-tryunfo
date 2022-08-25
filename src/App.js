@@ -58,12 +58,12 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = (objetoInfo) => {
-    const { cardTrunfo } = this.state;
-    if (cardTrunfo) {
-      this.setState({
-        hasTrunfo: true,
-      });
-    }
+    // const { cardTrunfo } = this.state;
+    // if (cardTrunfo) {
+    //   this.setState({
+    //     hasTrunfo: true,
+    //   });
+    // }
     this.setState((prevState) => ({
       data: [...prevState.data, objetoInfo],
     }), () => {
@@ -76,6 +76,7 @@ class App extends React.Component {
         cardName: '',
         cardDescription: '',
         foto: '',
+        cardTrunfo: false,
       });
     });
   };

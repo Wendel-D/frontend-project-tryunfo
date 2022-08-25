@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
-  checkedhasTrunfo = (element) => {
-    if (!element) {
-      return <p>Super Trunfo</p>;
-    }
-    return <> </>;
-  };
+//   checkedhasTrunfo = (element) => {
+//     if (!element) {
+//       return <p>Super Trunfo</p>;
+//     }
+//     return <> </>;
+//   };
 
   render() {
     const {
@@ -114,14 +114,21 @@ class Form extends React.Component {
         <br />
         <br />
         <label htmlFor="isTrunfo">
-          { this.checkedhasTrunfo(hasTrunfo)}
-          { hasTrunfo ? <p>Você já tem um Super Trunfo em seu baralho</p> : <input
+          {/* { this.checkedhasTrunfo(hasTrunfo)} */}
+          {/* { hasTrunfo ? <p>Você já tem um Super Trunfo em seu baralho</p> : <input */}
+          {/* type="checkbox"
+            name="isTrunfo"
+            data-testid="trunfo-input"
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
+          />} */}
+          <input
             type="checkbox"
             name="isTrunfo"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
             onChange={ onInputChange }
-          />}
+          />
         </label>
         <button
           name="isSaveButtonDisabled"
@@ -150,9 +157,9 @@ class Form extends React.Component {
 
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
-  onInputChange: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.number.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
   cardAttr2: PropTypes.number.isRequired,
   cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
