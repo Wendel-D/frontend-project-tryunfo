@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
+  checkedhasTrunfo = (element) => {
+    if (!element) {
+      return <p>Super Trunfo</p>;
+    }
+    return <> </>;
+  };
+
   render() {
     const {
       cardName,
@@ -107,13 +114,14 @@ class Form extends React.Component {
         <br />
         <br />
         <label htmlFor="isTrunfo">
-          <input
+          { this.checkedhasTrunfo(hasTrunfo)}
+          { hasTrunfo ? <p>Você já tem um Super Trunfo em seu baralho</p> : <input
             type="checkbox"
             name="isTrunfo"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
             onChange={ onInputChange }
-          />
+          />}
         </label>
         <button
           name="isSaveButtonDisabled"
