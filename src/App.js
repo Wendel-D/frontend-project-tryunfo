@@ -76,7 +76,7 @@ class App extends React.Component {
         cardName: '',
         cardDescription: '',
         foto: '',
-        cardTrunfo: false,
+        // cardTrunfo: false,
       });
     });
   };
