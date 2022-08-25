@@ -19,11 +19,20 @@ class Card extends React.Component {
         <p data-testid="rare-card">{ cardRare }</p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <h1 data-testid="name-card">{cardName}</h1>
-        {cardTrunfo === true ? <h2 data-testid="trunfo-card">Super Trunfo</h2> : null}
+        {cardTrunfo ? <h2 data-testid="trunfo-card">Super Trunfo</h2> : null}
         <p data-testid="description-card">{ cardDescription }</p>
-        <p data-testid="attr1-card">{`Poder: ${cardAttr1}`}</p>
-        <p data-testid="attr2-card">{`Alcance: ${cardAttr2}`}</p>
-        <p data-testid="attr3-card">{`Velocidade: ${cardAttr3}`}</p>
+        <p data-testid="attr1-card">
+          Poder:
+          {cardAttr1}
+        </p>
+        <p data-testid="attr2-card">
+          Alcance:
+          {cardAttr2}
+        </p>
+        <p data-testid="attr3-card">
+          Velocidade:
+          {cardAttr3}
+        </p>
 
       </div>
     );

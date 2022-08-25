@@ -58,12 +58,12 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = (objetoInfo) => {
-    // const { cardTrunfo } = this.state;
-    // if (cardTrunfo) {
-    //   this.setState({
-    //     hasTrunfo: true,
-    //   });
-    // }
+    const { isTrunfo } = this.state;
+    if (isTrunfo) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    }
     this.setState((prevState) => ({
       data: [...prevState.data, objetoInfo],
     }), () => {
@@ -76,7 +76,6 @@ class App extends React.Component {
         cardName: '',
         cardDescription: '',
         foto: '',
-        // cardTrunfo: false,
       });
     });
   };
@@ -129,12 +128,12 @@ class App extends React.Component {
               key={ e.cardName }
               cardName={ e.cardName }
               cardDescription={ e.cardDescription }
-              cardAttr1={ e.atriNumeric1 }
-              cardAttr2={ e.atriNumeric2 }
-              cardAttr3={ e.atriNumeric3 }
-              cardImage={ e.foto }
-              cardRare={ e.raridade }
-              cardTrunfo={ e.isTrunfo }
+              cardAttr1={ e.cardAttr1 }
+              cardAttr2={ e.cardAttr2 }
+              cardAttr3={ e.cardAttr3 }
+              cardImage={ e.cardImage }
+              cardRare={ e.cardRare }
+              cardTrunfo={ e.cardTrunfo }
             />
           ))
         }
