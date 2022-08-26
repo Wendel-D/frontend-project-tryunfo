@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Card extends React.Component {
+class Deck extends React.Component {
   render() {
     const {
       cardName,
@@ -12,14 +12,15 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      onClick,
     } = this.props;
     return (
       <div>
-        <p data-testid="rare-card">{ cardRare }</p>
+        <p data-testid="rare-card">{cardRare}</p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <h1 data-testid="name-card">{ cardName }</h1>
+        <h1 data-testid="name-card">{cardName}</h1>
         {cardTrunfo ? <h2 data-testid="trunfo-card">Super Trunfo</h2> : null}
-        <p data-testid="description-card">{ cardDescription }</p>
+        <p data-testid="description-card">{cardDescription}</p>
         <p data-testid="attr1-card">
           Poder:
           {cardAttr1}
@@ -32,12 +33,19 @@ class Card extends React.Component {
           Velocidade:
           {cardAttr3}
         </p>
+        <button
+          type="button"
+          data-testid="delete-button"
+          onClick={ () => onClick({ cardName, cardTrunfo }) }
+        >
+          Excluir
+        </button>
       </div>
     );
   }
 }
 
-Card.propTypes = {
+Deck.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardAttr1: PropTypes.number.isRequired,
@@ -46,6 +54,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
-export default Card;
+export default Deck;

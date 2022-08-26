@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Deck from './components/Deck';
 
 class App extends React.Component {
   state = {
@@ -35,7 +36,6 @@ class App extends React.Component {
       const maxLimit = 210;
       const maxLimitIndividual = 90;
       const soma = (+atriNumeric1 + +atriNumeric2 + +atriNumeric3 <= maxLimit);
-      console.log(soma);
       if (
         cardName && cardDescription && foto
         && soma
@@ -76,8 +76,24 @@ class App extends React.Component {
         cardName: '',
         cardDescription: '',
         foto: '',
+        isTrunfo: false,
       });
     });
+  };
+
+  onDeleteButtonClick = ({ cardName, cardTrunfo }) => {
+    const { data } = this.state;
+    const i = data.find((elemento) => elemento.cardName === cardName);
+    if (cardTrunfo) {
+      this.setState((state) => ({
+        data: state.data.filter((elemento) => elemento.cardTrunfo !== i.cardTrunfo),
+        hasTrunfo: false,
+      }));
+    } else {
+      this.setState((state) => ({
+        data: state.data.filter((elemento) => elemento.cardName !== i.cardName),
+      }));
+    }
   };
 
   render() {
@@ -121,10 +137,11 @@ class App extends React.Component {
           cardImage={ foto }
           cardRare={ raridade }
           cardTrunfo={ isTrunfo }
+          prevOn={ prevOn }
         />
         {
           prevOn === true && data.map((e) => (
-            <Card
+            <Deck
               key={ e.cardName }
               cardName={ e.cardName }
               cardDescription={ e.cardDescription }
@@ -134,6 +151,7 @@ class App extends React.Component {
               cardImage={ e.cardImage }
               cardRare={ e.cardRare }
               cardTrunfo={ e.cardTrunfo }
+              onClick={ this.onDeleteButtonClick }
             />
           ))
         }
